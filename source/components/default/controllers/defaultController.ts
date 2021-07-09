@@ -4,7 +4,7 @@ import { TransactionModel } from '../model/transaction_model';
 
 const FetchAll = (req: Request, res: Response, next: NextFunction) => {
     let transactionModel = new TransactionModel();
-    return res.json(transactionModel.findTransactionById("1"));
+    return res.json(transactionModel.find({}));
 };
 
 const FindTransactionByTranId = (req:Request, res:Response, next: NextFunction) => {

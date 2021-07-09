@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var transaction_model_1 = require("../model/transaction_model");
 var FetchAll = function (req, res, next) {
     var transactionModel = new transaction_model_1.TransactionModel();
-    return res.json(transactionModel.findTransactionById("1"));
+    return res.json(transactionModel.find({}));
 };
 var FindTransactionByTranId = function (req, res, next) {
     var id = req.params.id;
