@@ -7,17 +7,36 @@ var express_1 = __importDefault(require("express"));
 var path_1 = __importDefault(require("path"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var config_1 = __importDefault(require("./config"));
-var router = express_1.default();
-router.enable('strict routing');
-router.set('view options', { pretty: true });
-router.set('views', path_1.default.join(__dirname, 'components'));
-router.set('view engine', 'pug');
-router.set('config', config_1.default);
-router.use(body_parser_1.default.urlencoded({ extended: true }));
-router.use(body_parser_1.default.json());
+var routes_1 = __importDefault(require("./routes"));
+var NAMESPACE = "App";
+var app = express_1.default();
+app.enable('strict routing');
+app.set('view options', { pretty: true });
+app.set('views', path_1.default.join(__dirname, 'components'));
+app.set('view engine', 'pug');
+app.set('config', config_1.default);
+app.use(body_parser_1.default.urlencoded({ extended: true }));
+app.use(body_parser_1.default.json());
 if (config_1.default.environment === 'development') {
-    router.locals.pretty = true;
+    app.locals.pretty = true;
 }
-router.use(express_1.default.static('public'));
-router.use(require('./routes'));
-exports.default = router;
+/**** SETUP CORS  *****/
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    if (req.method == 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return res.status(200).json({});
+    }
+    next();
+});
+app.use(express_1.default.static('public'));
+/** Setup Routing */
+app.use('/', routes_1.default);
+app.use(function (req, res, next) {
+    var error = new Error('Not found');
+    res.status(404).json({
+        message: error.message
+    });
+});
+exports.default = app;

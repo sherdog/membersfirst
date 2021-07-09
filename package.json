@@ -2,10 +2,9 @@
   "name": "wnd_node",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "build/server.js",
   "scripts": {
-    "start": "nodemon server.ts",
-    "build": "rm -rf build/ && tsc"
+    "start": "npx ts-node ./source/server.ts"
   },
   "keywords": [],
   "author": "",
