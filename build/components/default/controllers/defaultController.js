@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var transaction_model_1 = require("../model/transaction_model");
+var ShowHomepage = function (req, res, next) {
+    res.render("default/views/homepage");
+};
 var FetchAll = function (req, res, next) {
     var transactionModel = new transaction_model_1.TransactionModel();
     return res.json(transactionModel.find({}));
@@ -31,6 +34,7 @@ var SearchTransaction = function (req, res, next) {
     res.json(results);
 };
 exports.default = {
+    ShowHomepage: ShowHomepage,
     FetchAll: FetchAll,
     FindTransactionByTranId: FindTransactionByTranId,
     FindTransactionByAccountId: FindTransactionByAccountId,

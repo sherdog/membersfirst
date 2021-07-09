@@ -1,6 +1,11 @@
 
 import { NextFunction, Request, Response } from 'express';
 import { TransactionModel } from '../model/transaction_model';
+import path from 'path';
+
+const ShowHomepage = (req:Request, res:Response, next:NextFunction) => {
+    res.render("default/views/homepage");
+}
 
 const FetchAll = (req: Request, res: Response, next: NextFunction) => {
     let transactionModel = new TransactionModel();
@@ -41,7 +46,8 @@ const SearchTransaction = (req:Request, res: Response, next: NextFunction) => {
     res.json(results);
 }
 
-export default { 
+export default {
+    ShowHomepage, 
     FetchAll,
     FindTransactionByTranId,
     FindTransactionByAccountId,
