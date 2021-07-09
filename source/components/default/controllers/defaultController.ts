@@ -25,7 +25,7 @@ const FindTransactionByAccountId = (req:Request, res:Response, next: NextFunctio
 const SearchTransaction = (req:Request, res: Response, next: NextFunction) => {
 
     //probably should validate this criteria
-    var filters : any = req.body.criteria;
+    var filters : any = req.body.criteria || {};
     var dateRange : any = req.body.date_range;
     let transactionModel = new TransactionModel();
 

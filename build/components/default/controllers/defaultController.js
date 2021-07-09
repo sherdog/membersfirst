@@ -17,7 +17,7 @@ var FindTransactionByAccountId = function (req, res, next) {
 };
 var SearchTransaction = function (req, res, next) {
     //probably should validate this criteria
-    var filters = req.body.criteria;
+    var filters = req.body.criteria || {};
     var dateRange = req.body.date_range;
     var transactionModel = new transaction_model_1.TransactionModel();
     var results;

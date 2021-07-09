@@ -4,7 +4,7 @@
 To run locally make sure you have npm installed on your machine. Download the repo at:  http://github.com/sherdog/thing.git 
 
 **Hosted Version**
-The hosted version is hosted on Heroku at https://transactionly.herokuapp.com/
+The hosted version is hosted on Heroku at https://memberfirstchallenge.herokuapp.com/
 
 **Routes:**
 All Transactions: Returns all transactions
