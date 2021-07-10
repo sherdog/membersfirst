@@ -38,7 +38,7 @@ export class TransactionModel {
     public findTransactionById = function(transactionId: string) : any {
 
         var transaction = transactions.filter(function(t) {
-            return t.$id === transactionId;
+            return t.Id === transactionId;
         })[0];
 
         return transaction;
