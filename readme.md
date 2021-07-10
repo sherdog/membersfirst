@@ -17,7 +17,7 @@ Returns all transactions
 
     GET /transactions
 
-Transaction by $id
+Transaction by Id
 
     GET /transactions/[TRANSACTION_ID]
 
