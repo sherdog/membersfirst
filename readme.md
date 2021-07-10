@@ -15,15 +15,15 @@ The hosted version is hosted on Heroku at and you can point the requests to: htt
 
 Returns all transactions
 
-    GET /
+    GET /transactions
 
 Transaction by $id
 
-    GET /transaction/[TRANSACTION_ID]
+    GET /transactions/[TRANSACTION_ID]
 
 **Transactions by Account**: Returns transactions for account
 
-    GET /transaction/account/[ACCOUNT_ID]
+    GET /transactions/account/[ACCOUNT_ID]
 
 **Transaction Search**: searches transactions by one or more fields, 
 
